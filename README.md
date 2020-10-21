@@ -7,9 +7,11 @@ Voici un petit test afin de juger vos capacités et compétences techniques (mai
 
 ## Le Contexte
 
-Vous avez ci-joint une base de données SQlite ainsi que des wireframes des pages attendues. Celle-ci contient une liste de catégories et de produits.
+Vous avez ci-joint une base de données SQlite ainsi que [des wireframes des pages attendues](https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1). Celle-ci contient une liste de catégories et de produits.
 
-Votre mission sera de développer une boutique simple (une page d'accueil *catalogue* et une page *panier*) sous la forme d'une web app, ainsi qu'une petite API permettant d'accéder aux données dans la base. Le résultat devra être consultable depuis un mobile.
+Votre mission sera de développer une boutique simple (une page d'accueil *catalogue* et une page *panier*) sous la forme d'une web app, ainsi qu'une petite API permettant d'accéder aux données dans la base.  
+Le passage de commandes et le checkout ne sont pas des fonctionnalités attendues, en revanche le panier pourra être stocké côté client ([local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) par exemple).  
+Le résultat devra être consultable depuis un mobile.
 
 Pour cela, vous êtes libre d'utiliser les technologies, frameworks et librairies de votre choix (préférence pour le Javascript). 
 
