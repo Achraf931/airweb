@@ -1,5 +1,4 @@
-Airweb - Test Technique 
-===
+# Airweb - Test Technique développeur front-end
 
 Bonjour !
 
@@ -7,58 +6,110 @@ Voici un petit test afin de juger vos capacités et compétences techniques (mai
 
 ## Le Contexte
 
-Vous avez ci-joint une base de données SQlite. Celle-ci contient une liste de catégories et de produits, et une liste d'utilisateurs.
+Vous avez ci-joint une API basique. Celle-ci expose deux endpoints, une liste de catégories et une liste de produits.
 
-Votre mission sera de développer une fausse API pour une boutique simple (comportant une page *catalogue*, une page *login* et une page *panier*).
-La partie front n'est pas à développer !
+Votre mission sera de développer l'interface pour d'une boutique simple (comportant une page _catalogue_ et une page _panier_) basé sur les wireframes suivants : [https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1](https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1)
 
-Les produits référencés dans la base de données comportent des champs `visible_authenticated` et `visible_public`.
-Les endpoints du catalogue ne devront retourner que les produits et catégories concernés par le statut d'authentification de la requète.
+Le passage de commandes et le checkout ne sont pas des fonctionnalités attendues, mais une interface fictive serait appréciable.
 
-Par souci de simplicité, les mot de passe utilisateurs sont des hashs en MD5 de l'ID utilisateur concaténé avec le mot de passe (`MD5(<ID><PASSWORD>)`).
-Le mot de passe sera toujours `bonjour`.
-
-Le passage de commandes et le checkout ne sont pas des fonctionnalités attendues, mais un panier dans l'API serait appréciable.
-
-Vous êtes libre d'utiliser les technologies, frameworks et librairies de votre choix (préférence pour le Javascript ou le PHP). 
+Vous êtes libre d'utiliser les technologies, frameworks et librairies de votre choix.
 
 Le résultat devra être rendu sous la forme d'un lien vers un repository Git, avec les instructions pour lancer le projet en local.
 
-## La base de données
+## Instructions pour lancer l'API
 
-### `products`
-`id` - Identifiant unique du produit  
-`label` - Nom du produit à afficher  
-`description` - Description du produit  
-`price` - Prix en centimes (integer)  
-`category_id` - Identifiant de la catégorie parente  
-`thumbnail_url` - URL vers l'image miniature  
-`visible_public` - Si le produit doit être affiché au public  
-`visible_authenticated` - Si le produit doit être affiché lorsque connecté  
+L'API fictive se trouve dans le dossier [server](./server).
 
-### `categories`
-`id` - Identifiant unique du produit  
-`index` - Index de la catégorie dans la boutique  
-`label` - Nom du produit à afficher  
-`description` - Description du produit  
+Pour lancer l'API vous avez deux options :
 
-### `users`
-`id` - Identifiant unique de l'utilisateur  
-`name` - Nom d'affichage de l'utilisateur  
-`email` - Adresse email de l'utilisateur  
-`password_hash` - Hash du mot de passe utilisateur *(défini plus haut)*  
+- Utiliser Docker
 
-> Si l'envie vous venait d'ajouter des fonctionnalités, vous pouvez étendre le contenu de la base, si nécessaire.
+```bash
+$ cd server
+$ docker build --tag=api
+$ docker run api -p 3000:3000
+```
+
+- Lancer l'API manuellement
+
+```bash
+$ cd server
+$ npm install
+$ npm start
+```
+
+L'API devrait ensuite être disponible à l'adresse : [localhost:3000](http://localhost:3000)
+
+## Interfaces
+
+### `Product`
+
+```ts
+interface Product {
+  // Identifiant unique du produit
+  id: string;
+  // Nom du produit à afficher
+  label: string;
+  // Description du produit
+  description: string;
+  // Prix en centimes (integer)
+  price: number;
+  // Identifiant de la catégorie parente
+  category_id: string;
+  // URL vers l'image miniature
+  thumbnail_url: string | null;
+}
+```
+
+### `Category`
+
+```ts
+interface Category {
+  // Identifiant unique du produit
+  id: string;
+  // Index de la catégorie dans la boutique
+  index: number;
+  // Nom du produit à afficher
+  label: string;
+  // Description du produit
+  description: string;
+}
+```
+
+## Documentation de l'API
+
+### `[GET] /categories`
+
+Retourne la liste complète des categories
+
+- return: `Category[]`
+
+### `[GET] /categories/:id`
+
+Retourne le détail d'une catégorie
+
+- return: `Category`
+
+### `[GET] /products`
+
+Retourne la liste complète des produits
+
+- return: `Product[]`
+
+### `[GET] /products/:id`
+
+Retourne le détail d'un produit
+
+- return: `Product`
 
 ## Extras
 
 Toute fonctionnalité supplémentaire sera bienvenue, par exemple :
+
 - **Internationalisation**
 - **Filtres** et recherche
 - ...
 
-Quelques wireframes du front-end sont disponibles [ici](https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1), si besoin.
-
-Ce test devrait représenter environ 2h à 4h de travail (?). Pas de panique si c'est trop ou si vous êtes bloqués, on débriefera ensemble.
+Ce test devrait représenter environ 2h à 4h de travail. Pas de panique si c'est trop ou si vous êtes bloqués, on débriefera ensemble.
 
 Bon courage !
