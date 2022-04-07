@@ -3,7 +3,7 @@ FROM node:current-alpine as build
 WORKDIR /var/www
 
 COPY package.json package-lock.json ./
-RUN npm install --only=prod
+RUN npm install --only-prod
 
 COPY . .
 
