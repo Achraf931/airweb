@@ -3,8 +3,8 @@
   "description": "server",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index",
-    "start": "node index"
+    "dev": "nodemon server",
+    "start": "node server"
   },
   "author": "Alexandre Mouton-Brady",
   "dependencies": {

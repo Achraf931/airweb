@@ -1,6 +1,6 @@
+import cors from "fastify-cors";
 import { fastify } from "fastify";
 import { readFile } from "fs/promises";
-import cors from "fastify-cors";
 
 const app = fastify();
 
@@ -11,13 +11,13 @@ app.get("/products", async () => {
   return readJson("./data/products.json");
 });
 
-app.get("/products/:id", async (req, rep) => {
+app.get("/products/:id", async (request, reply) => {
   await sleep(500);
 
   const products = await readJson("./data/products.json");
-  const product = products.find((product) => product.id === req.params.id);
+  const product = products.find((product) => product.id === request.params.id);
 
-  if (!product) rep.callNotFound();
+  if (!product) reply.callNotFound();
 
   return product;
 });
@@ -27,13 +27,15 @@ app.get("/categories", async () => {
   return readJson("./data/categories.json");
 });
 
-app.get("/categories/:id", async (req, rep) => {
+app.get("/categories/:id", async (request, reply) => {
   await sleep(500);
 
   const categories = await readJson("./data/categories.json");
-  const category = categories.find((category) => category.id === req.params.id);
+  const category = categories.find(
+    (category) => category.id === request.params.id
+  );
 
-  if (!category) rep.callNotFound();
+  if (!category) reply.callNotFound();
 
   return category;
 });
