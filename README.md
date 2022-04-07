@@ -2,13 +2,13 @@
 
 Bonjour !
 
-Voici un petit test afin de juger vos capacités et compétences techniques (mais pas que).
+Voici un petit test afin de juger vos capacités et compétences techniques *(mais pas que)*.
 
 ## Le Contexte
 
 Vous avez ci-joint une API basique. Celle-ci expose deux endpoints, une liste de catégories et une liste de produits.
 
-Votre mission sera de développer l'interface pour d'une boutique simple (comportant une page _catalogue_ et une page _panier_) basé sur les wireframes suivants : [https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1](https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1)
+Votre mission sera de développer l'interface d'une boutique simple (comportant une page _catalogue_ et une page _panier_) basé sur les wireframes suivants : [https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1](https://www.figma.com/file/GB7FZWWMPTg57UxpfogUDc/Maquette-boutique?node-id=0%3A1)
 
 Le passage de commandes et le checkout ne sont pas des fonctionnalités attendues, mais une interface fictive serait appréciable.
 
