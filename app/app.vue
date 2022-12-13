@@ -1,9 +1,11 @@
 <script setup>
-const { data } = await useFetch('http://localhost:3000/products')
-console.log(data.value)
+useHead({
+  titleTemplate: titleChunk => titleChunk ? `${titleChunk} - AirWeb` : 'AirWeb'
+})
 </script>
+
 <template>
-  <div>
-    <p class="te">Bonjour les enfants</p>
-  </div>
+  <NuxtLayout>
+    <NuxtPage/>
+  </NuxtLayout>
 </template>
