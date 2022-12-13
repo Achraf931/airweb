@@ -13,8 +13,8 @@ const product = computed(() => store.showProduct)
 useHead({
   title: product.value.label,
   meta: [
-    { name: 'description', content: product.value.descriptiob },
-    { property: 'og:description', content: product.value.descriptiob },
+    { name: 'description', content: product.value.description },
+    { property: 'og:description', content: product.value.description },
     { property: 'og:image', content: product.value.thumbnail_url },
     { name: 'twitter:card', content: 'summary_large_image' },
   ]
@@ -22,9 +22,9 @@ useHead({
 </script>
 
 <template>
-  <article class="p-5 flex gap-5">
-    <img class="w-1/2 rounded-xl aspect-square " :src="product.thumbnail_url" :alt="product.label">
-    <div class="w-1/2 flex flex-col">
+  <article class="p-5 flex flex-col md:flex-row gap-5">
+    <img class="w-full md:w-1/2 rounded-xl aspect-square " :src="product.thumbnail_url" :alt="product.label">
+    <div class="w-full md:w-1/2 flex flex-col">
       <h1 class="font-bold text-3xl">{{ product.label }}</h1>
       <p class="my-5">{{ product.description }}</p>
       <p class="my-5 font-bold">Prix: {{ product.price }}€</p>

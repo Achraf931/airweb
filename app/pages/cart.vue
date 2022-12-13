@@ -7,10 +7,13 @@ const products = computed(() => {
 const totalCart = computed(() => {
   return store.getSum
 })
+useHead({
+  title: 'Panier',
+})
 </script>
 
 <template>
-  <section class="p-5 flex">
+  <section v-if="products.length" class="p-5 flex">
     <div class="flex flex-col w-2/3 py-5 pr-5 gap-5 max-h-[85vh] h-full snap-mandatory snap-y overflow-y-scroll">
       <article v-for="(product, index) in products" :key="index" class="shadow-md flex rounded-md snap-start">
         <img class="aspect-square w-24 rounded-l-md" :src="product.thumbnail_url" :alt="`Image ${product.label}`">
@@ -26,7 +29,10 @@ const totalCart = computed(() => {
       <div class="my-5">
         <p class="text-xs">Livraison gratuite</p>
       </div>
-      <UIButton full-width>Payer {{ totalCart }}€</UIButton>
+      <NuxtLink to="/checkout">
+        <UIButton full-width>Payer {{ totalCart }}€</UIButton>
+      </NuxtLink>
     </div>
   </section>
+  <p class="font-bold text-xl text-center p-5" v-else>Votre panier est vide !</p>
 </template>

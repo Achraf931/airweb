@@ -5,6 +5,9 @@ const store = useProducts()
 onMounted(async () => await store.getProducts())
 
 const products = computed(() => store.showProducts)
+useHead({
+  title: 'Accueil',
+})
 </script>
 <template>
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5">
