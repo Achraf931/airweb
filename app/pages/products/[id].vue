@@ -4,9 +4,7 @@ import {useProducts} from "../../stores/products";
 const route = useRoute()
 const store = useProducts()
 
-onMounted(async () => {
-  await store.getProductById(route.params.id)
-})
+store.getProductById(route.params.id)
 
 const product = computed(() => store.showProduct)
 
@@ -23,8 +21,8 @@ useHead({
 
 <template>
   <article class="p-5 flex flex-col md:flex-row gap-5">
-    <img class="w-full md:w-1/2 rounded-xl aspect-square " :src="product.thumbnail_url" :alt="product.label">
-    <div class="w-full md:w-1/2 flex flex-col">
+    <img class="w-full md:w-2/5 rounded-xl aspect-video md:aspect-square object-cover" :src="product.thumbnail_url" :alt="product.label">
+    <div class="w-full md:w-3/5 flex flex-col bg-white rounded-xl p-5 shadow-md">
       <h1 class="font-bold text-3xl">{{ product.label }}</h1>
       <p class="my-5">{{ product.description }}</p>
       <p class="my-5 font-bold">Prix: {{ product.price }}€</p>

@@ -10,7 +10,7 @@ const props = defineProps({
 })
 </script>
 <template>
-  <article class="shadow-md p-4 flex flex-col">
+  <article class="shadow-md p-4 flex flex-col bg-white">
     <img class="rounded-md w-full object-cover aspect-video" :src="props.product.thumbnail_url" :alt="`Image ${props.product.label}`">
     <div class="flex items-baseline justify-between gap-2">
       <h2 class="my-2 text-xs font-bold w-2/3">{{ props.product.label }}</h2>
